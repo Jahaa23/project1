@@ -1,5 +1,4 @@
 from re import A
-from tkinter import N
 import numpy as np
 from pyrsistent import l
 import streamlit as st
