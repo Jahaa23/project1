@@ -130,9 +130,11 @@ with col1:
     pass
 with col2:
     
-    if st.button('SCAN EMOTION(Click Here)'):
-        count=0
-        list.clear()
+    if st.button("Start Webcam"):
+        st.write("Emotion detected: Happy (Placeholder)")
+        cap = cv2.VideoCapture(0)
+        count = 0
+        list = []
 
         while True:
             ret, frame = cap.read()
