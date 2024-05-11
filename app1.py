@@ -10,7 +10,7 @@ from tensorflow.keras.layers import Conv2D # type: ignore
 from tensorflow.keras.layers import MaxPooling2D # type: ignore
 
 
-df = pd.read_csv("C:\\Users\\kardo\\tuneaura1\\muse_v3.csv")
+df = pd.read_csv("muse_v3.csv")
 df['link'] = df['lastfm_url']
 df['name'] = df['track']
 df['emotional'] = df['number_of_emotion_tags']
@@ -54,7 +54,7 @@ model.add(Dense(1024,activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(7, activation='softmax'))
 
-model.load_weights("C:\\Users\\kardo\\tuneaura1\\model.h5")
+model.load_weights("model.h5")
 
 
 emotion_dict = {0:"Angry",1:"Disgusted",2:"Fearful",3:"Happy",4:"Neutral",5:"Sad",6:"Surprised"}
@@ -85,7 +85,7 @@ with col2:
             ret, frame = cap.read()
             if not ret:
                 break
-            face = cv2.CascadeClassifier("C:\\Users\\kardo\\tuneaura1\\haarcascade_frontalface_default.xml")
+            face = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             faces = face.detectMultiScale(gray,scaleFactor=1.3,minNeighbors=5)
             count = count+1
