@@ -1,6 +1,5 @@
 from re import A
 import numpy as np
-from pyrsistent import l
 import streamlit as st
 import pandas as pd
 import cv2
