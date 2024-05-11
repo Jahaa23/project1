@@ -78,6 +78,63 @@ with col1:
 with col2:
     
     if st.button('SCAN EMOTION(Click Here)'):
+        import streamlit as st
+        import cv2
+        import numpy as np
+        
+        # Streamlit app code
+        st.title("Webcam Emotion Detection")
+        
+        # HTML and JavaScript code for webcam access and emotion detection
+        html_code = """
+        <div id="video-container">
+          <video id="video" width="640" height="480" autoplay></video>
+        </div>
+        <script>
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(stream => {
+            const video = document.getElementById('video');
+            video.srcObject = stream;
+          })
+          .catch(err => {
+            console.error('Error accessing webcam:', err);
+          });
+        
+        const video = document.getElementById('video');
+        
+        // Function to process webcam frames and detect emotions
+        function detectEmotions() {
+          const canvas = document.createElement('canvas');
+          const context = canvas.getContext('2d');
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+          context.drawImage(video, 0, 0, canvas.width, canvas.height);
+          const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+        
+          // TODO: Implement emotion detection logic using TensorFlow.js or OpenCV.js
+        
+          // Example: Display placeholder text
+          const placeholderText = document.createElement('p');
+          placeholderText.textContent = 'Emotion detected: Happy';
+          document.body.appendChild(placeholderText);
+        }
+        
+        // Periodically call detectEmotions function
+        setInterval(detectEmotions, 1000); // Adjust interval as needed
+        </script>
+        """
+        # Display webcam feed and emotion detection code using HTML code
+        st.markdown(html_code, unsafe_allow_html=True)
+        
+        # Emotion detection logic (to be implemented)
+        # You can integrate this logic with JavaScript or handle it separately in Python using OpenCV, TensorFlow, etc.
+        # Once the emotion is detected, you can display the result in Streamlit using st.write() or st.markdown()
+        
+        # Example Python-based emotion detection logic (using OpenCV for face detection)
+        # Replace this with your actual emotion detection logic
+        # This is just a placeholder
+        if st.button("Detect Emotions"):
+            st.write("Emotion detected: Happy (Placeholder)")
         count=0
         list.clear()
 
