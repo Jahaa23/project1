@@ -77,7 +77,7 @@ import numpy as np
 from collections import Counter
 
 # Streamlit app code
-st.title("Webcam Emotion Detection")
+
 
 # HTML and JavaScript code for webcam access and emotion detection
 html_code = """
